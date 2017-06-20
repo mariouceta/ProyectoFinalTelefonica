@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/empleodigital" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+	
+	<bean id="daoFormacion" class="dao.DAOFormacionImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoMunicipio" class="dao.DAOMunicipioImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoProvincia" class="dao.DAOProvinciaImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoComunidad" class="dao.DAOComunidadImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoUser" class="dao.DAOUserImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoVacaciones" class="dao.DAOVacacionesImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoFiestaRegional" class="dao.DAOFiestaRegionalImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoFiestaLocal" class="dao.DAOFiestaLocalImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoFiestaNacional" class="dao.DAOFiestaNacionalImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoModulo" class="dao.DAOModuloImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="daoModuloFormacion" class="dao.DAOModuloFormacionImpl" scope="singleton">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+</beans>
